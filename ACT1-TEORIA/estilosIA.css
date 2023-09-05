@@ -4,16 +4,21 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Estilos de la barra de navegación */
 .navbar {
     background-color: #333;
     overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar a {
-    float: left;
     font-size: 16px;
     color: white;
     text-align: center;
@@ -81,12 +86,19 @@ body {
     margin: 20px;
     border: 2px solid #333;
     border-radius: 10px;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para evitar que se estire demasiado en pantallas grandes */
 }
 
 /* Estilos del formulario de contacto */
 .contact-form {
-    width: 300px;
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para el formulario */
     margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-form input[type="text"],
@@ -110,3 +122,54 @@ body {
 .contact-form input[type="submit"]:hover {
     background-color: #555;
 }
+
+/* Media queries para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .dropdown {
+        text-align: center;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .section, .contact-form {
+        width: 90%;
+    }
+}
+
+
+/* Estilos de la galería de imágenes */
+/* Estilos de la galería de imágenes */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+/* Estilos de las imágenes en la galería */
+.galeria-imagen {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #333;
+    padding: 10px;
+    margin: 10px;
+}
+

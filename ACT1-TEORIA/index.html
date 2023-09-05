@@ -8,19 +8,19 @@
   </head>
   <body>
     <div class="navbar">
-      <a href="#">Quien soy</a>
+      <a href="#quien soy">Quien soy</a>
       <div class="dropdown">
         <button class="dropbtn">Galería</button>
         <div class="dropdown-content">
-          <a href="#">Caricaturas</a>
-          <a href="#">Paisajes</a>
-          <a href="#">Anime</a>
+          <a href="#caricaturas">Caricaturas</a>
+          <a href="#paisajes">Paisajes</a>
+          <a href="#anime">Anime</a>
         </div>
       </div>
-      <a href="#">Contacto</a>
+      <a href="#contacto">Contacto</a>
     </div>
 
-    <div class="section">
+    <div id="quien soy" class="section">
       <h1>Quién soy</h1>
       <p>
         Bienvenido a mi sitio web de dibujos. Aquí encontrarás una selección de
@@ -30,42 +30,48 @@
 
     <div class="section">
       <h1>Galería</h1>
-      <h2>Caricaturas</h2>
-      <img
-        src="imagenes/caricatura1.png"
-        alt="Caricatura 1"
-        style="border: 2px solid #333; padding: 10px; margin: 10px"
-      />
-      <img
-        src="imagenes/caricatura2.png"
-        alt="Caricatura 2"
-        style="border: 2px solid #333; padding: 10px; margin: 10px"
-      />
-      <h2>Paisajes</h2>
-      <img
-        src="imagenes/paisaje1.png"
-        alt="Paisaje 1"
-        style="border: 2px solid #333; padding: 10px; margin: 10px"
-      />
-      <img
-        src="imagenes/paisaje2.png"
-        alt="Paisaje 2"
-        style="border: 2px solid #333; padding: 10px; margin: 10px"
-      />
-      <h2>Anime</h2>
-      <img
-        src="imagenes/anime1.png"
-        alt="Anime 1"
-        style="border: 2px solid #333; padding: 10px; margin: 10px"
-      />
-      <img
-        src="imagenes/anime2.png"
-        alt="Anime 2"
-        style="border: 2px solid #333; padding: 10px; margin: 10px"
-      />
+      <h2 id="caricaturas">Caricaturas</h2>
+      <div class="galeria">
+        <img
+          src="imagenes/caricatura1.png"
+          alt="Caricatura 1"
+          class="galeria-imagen"
+        />
+        <img
+          src="imagenes/caricatura2.png"
+          alt="Caricatura 2"
+          class="galeria-imagen"
+        />
+      </div>
+      <h2 id="paisajes">Paisajes</h2>
+      <div class="galeria">
+        <img
+          src="imagenes/paisaje1.png"
+          alt="Paisaje 1"
+          class="galeria-imagen"
+        />
+        <img
+          src="imagenes/paisaje2.png"
+          alt="Paisaje 2"
+          class="galeria-imagen"
+        />
+      </div>
+      <h2 id="anime">Anime</h2>
+      <div class="galeria">
+        <img
+          src="imagenes/Luffy-Gear-5.png"
+          alt="Luffy-Gear-5"
+          class="galeria-imagen"
+        />
+        <img
+          src="imagenes/Luffy-Gear-4-Snake-man.png"
+          alt="Luffy-Gear-4-Snake-man"
+          class="galeria-imagen"
+        />
+      </div>
     </div>
 
-    <div class="section">
+    <div id="contacto" class="section">
       <h1>Contacto</h1>
       <div class="contact-form">
         <form>
