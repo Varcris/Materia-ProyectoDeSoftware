@@ -25,6 +25,7 @@ class TestingConfig(Config):
     """Configuración de testing"""
 
     TESTING = True
+
     pass
 
 
