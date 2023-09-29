@@ -3,6 +3,7 @@ from src.web import error
 from src.web.controllers import issues  # <-- importamos el blueprint issues
 from src.web.config import config  # <-- importamos la configuración
 from src.core import database  # <-- importamos la base de datos
+from src.core import seeds  # <-- importamos los seeds
 
 
 def create_app(
@@ -27,6 +28,10 @@ def create_app(
     @app.cli.command(name="reset_db")  # <-- comando para resetear la base de datos
     def reset_db():
         database.reset_db()
+
+    @app.cli.command(name="seeds_db")  # <-- comando para resetear la base de datos
+    def seeds_db():
+        seeds.run()
 
     def sarasa():
         return "sarasa"
