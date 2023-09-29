@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from src.web import error
 from src.web.controllers import issues  # <-- importamos el blueprint issues
 from src.web.config import config  # <-- importamos la configuración
+from src.core import database  # <-- importamos la base de datos
 
 
 def create_app(
@@ -10,6 +11,8 @@ def create_app(
 ):
     app = Flask(__name__, static_folder=static_folder)  # <-- crea la aplicación
     app.config.from_object(config[env])  # <-- setea la configuración
+
+    database.init_app(app)  # <-- inicializamos la base de datos
 
     app.register_blueprint(issues.issue_bp)  # <-- registramos el blueprint
 
@@ -20,6 +23,11 @@ def create_app(
     app.register_error_handler(
         404, error.not_found_error
     )  # <-- registramos el error 404
+
+    @app.cli.command(name="reset_db")  # <-- comando para resetear la base de datos
+    def reset_db():
+        database.reset_db()
+
     return app
 
     # def sarasa():

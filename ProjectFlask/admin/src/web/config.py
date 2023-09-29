@@ -18,7 +18,14 @@ class ProductionConfing(Config):
 class DevelopmentConfig(Config):
     """Configuración de desarrollo"""
 
-    pass
+    DB_USER = "postgres"
+    DB_PASS = "admin"
+    DB_HOST = "localhost"
+    DB_NAME = "projectFlask"
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_DATABASE_URI = (
+        f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:5432/{DB_NAME}"
+    )
 
 
 class TestingConfig(Config):
