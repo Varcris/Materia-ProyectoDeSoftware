@@ -28,9 +28,9 @@ def create_app(
     def reset_db():
         database.reset_db()
 
+    def sarasa():
+        return "sarasa"
+
+    app.add_url_rule("/sarasa", view_func=sarasa)  # <-- forma antigua de agregar rutas
+
     return app
-
-    # def sarasa():
-    #     return "sarasa"
-
-    # app.add_url_rule("/sarasa", view_func=sarasa)  # <-- forma antigua de agregar rutas
