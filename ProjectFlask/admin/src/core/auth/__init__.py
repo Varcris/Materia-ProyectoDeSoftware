@@ -1,5 +1,6 @@
 from core.auth.user import User
 from src.core.database import db
+from src.core.bcrypt import bcrypt
 
 
 def list_users():
@@ -7,6 +8,8 @@ def list_users():
 
 
 def create_user(**kwargs):
+    hash = bcrypt.generate_password_hash(kwargs["password"].encode("utf-8"))
+    kwargs.update(password=hash.decode("utf-8"))
     user = User(**kwargs)
     db.session.add(user)
     db.session.commit()
@@ -14,5 +17,14 @@ def create_user(**kwargs):
     return user
 
 
-def find_user_by_email_and_pass(email, password):
-    return User.query.filter_by(email=email, password=password).first()
+def find_user_by_email(email):
+    return User.query.filter_by(email=email).first()
+
+
+def check_user(email, password):
+    user = find_user_by_email(email)
+
+    if user and bcrypt.check_password_hash(user.password, password.encode("utf-8")):
+        return user
+    else:
+        return None

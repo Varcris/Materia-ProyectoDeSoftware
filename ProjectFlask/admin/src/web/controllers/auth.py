@@ -18,7 +18,7 @@ def login():
 @auth_blueprint.post("/authenticate")
 def authenticate():
     params = request.form
-    user = auth.find_user_by_email_and_pass(params["email"], params["password"])
+    user = auth.check_user(params["email"], params["password"])
 
     if not user:
         flash("Email o clave incorrecta", "error")
