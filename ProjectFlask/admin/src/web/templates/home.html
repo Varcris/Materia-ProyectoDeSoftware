@@ -7,4 +7,10 @@
 <h1>Inicio</h1>
 <p>Pagina de inicio de la aplicación</p>
 <a href="{{ url_for('issues.index') }}" class="link">Consultas</a>
+{% if is_authenticated(session) %}
+<a href="{{url_for('users.index')}}" class="link">Usuarios</a>
+<a href="{{url_for('auth.logout')}}">Cerrar sesión</a>
+{% else %}
+<a href="{{url_for('auth.login')}}">Iniciar sesión</a>
+{% endif %}
 {% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %} Consultas {% endblock %}
+
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block content %}
+<h1>Users</h1>
+
+<table class="index-table box">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

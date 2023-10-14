@@ -6,6 +6,7 @@ from src.web.config import config  # <-- importamos la configuración
 from src.core import database  # <-- importamos la base de datos
 from src.web import routes  # <-- importamos las rutas
 from src.web import commands  # <-- importamos los comandos
+from src.web.helpers import auth
 
 session = Session()
 
@@ -20,7 +21,6 @@ def create_app(
     database.init_app(app)  # <-- inicializamos la base de datos
     commands.register(app)  # <-- registramos los comandos
     routes.register(app)  # <-- registramos las rutas
-
     # ---- ejemplo de rutas ----
 
     @app.get("/")  # <-- forma nueva de agregar rutas
@@ -30,6 +30,11 @@ def create_app(
     app.register_error_handler(
         404, error.not_found_error
     )  # <-- registramos el error 404
+    app.register_error_handler(
+        401, error.unauthorized_error
+    )  # <-- registramos el error 401
+
+    app.jinja_env.globals.update(is_authenticated=auth.is_authenticated)
 
     def sarasa():
         return "sarasa"
