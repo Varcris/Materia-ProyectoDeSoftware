@@ -13,6 +13,8 @@ class Config(object):
 class ProductionConfing(Config):
     """Configuración de producción"""
 
+    print("🔧 Cargando configuración de producción...")
+
     DB_USER = environ.get("DB_USER")
     DB_PASS = environ.get("DB_PASS")
     DB_HOST = environ.get("DB_HOST")
@@ -26,10 +28,7 @@ class ProductionConfing(Config):
 class DevelopmentConfig(Config):
     """Configuración de desarrollo"""
 
-    print("DB_USER", environ.get("DB_USER"))
-    print("DB_PASS", environ.get("DB_PASS"))
-    print("DB_HOST", environ.get("DB_HOST"))
-    print("DB_NAME", environ.get("DB_NAME"))
+    print("🔧 Cargando configuración de desarrollo...")
 
     DB_USER = environ.get("DB_USER")
     DB_PASS = environ.get("DB_PASS")
@@ -43,6 +42,8 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     """Configuración de testing"""
+
+    print("🔧 Cargando configuración de testing...")
 
     TESTING = True
 

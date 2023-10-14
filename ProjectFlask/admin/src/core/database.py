@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
+
 db = SQLAlchemy()
 
 
@@ -23,11 +24,7 @@ def config_db(app):
 
     @app.teardown_request  # <-- decorador para ejecutar la función luego de cada request
     def close_session(exeption=None):
-        """Cierre de la sesión de la base de datos.
-
-        Args:
-            exeption (exeption, optional): Excepción. Defaults to None.
-        """
+        """Cierre de la sesión de la base de datos."""
         db.session.close()
 
 

@@ -36,22 +36,22 @@ h1 {
     color: blue;
 }
 
-.flash {
+p.flash {
     width: 100;
     padding: 5px;
 }
 
-.flash > .error {
+p.flash.error {
     border: 3px solid red;
     background-color: #ff440070;
 }
 
-.flash > .success {
+p.flash.success {
     border: 3px solid green;
     background-color: #acff2f70;
 }
 
-.flash > .info{
+p.flash.info{
     border: 3px solid blue;
     background-color: #0000ff6e;
 }
