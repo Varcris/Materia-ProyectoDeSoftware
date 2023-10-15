@@ -18,8 +18,10 @@ class Issue(db.Model):
     description = db.Column(db.String(255))
     status = db.Column(db.String(50))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+
     user = db.relationship("User", back_populates="issues")
     labels = db.relationship("Label", secondary=issue_labels)
+
     updated_at = db.Column(
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )

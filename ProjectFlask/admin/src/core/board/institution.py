@@ -1,13 +1,13 @@
-from datetime import datetime
-
+import datetime
 from src.core.database import db
 
 
-class Label(db.Model):
-    __tablename__ = "labels"
+class Institution(db.Model):
+    __tablename__ = "institutions"
     id = db.Column(db.Integer, primary_key=True, unique=True)
-    title = db.Column(db.String(50))
-    description = db.Column(db.String(100))
+    name = db.Column(db.String(100))
+    address = db.Column(db.String(255))
+    phone = db.Column(db.String(255))
     updated_at = db.Column(
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )
